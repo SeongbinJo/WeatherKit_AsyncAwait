@@ -11,7 +11,7 @@
 		584639352C2B1E9200E37AF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584639342C2B1E9200E37AF6 /* ContentView.swift */; };
 		584639372C2B1E9300E37AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584639362C2B1E9300E37AF6 /* Assets.xcassets */; };
 		5846393A2C2B1E9300E37AF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584639392C2B1E9300E37AF6 /* Preview Assets.xcassets */; };
-		584639422C2B206800E37AF6 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584639412C2B206800E37AF6 /* WeatherData.swift */; };
+		584639482C2B2D2D00E37AF6 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584639472C2B2D2D00E37AF6 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,8 @@
 		584639342C2B1E9200E37AF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		584639362C2B1E9300E37AF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		584639392C2B1E9300E37AF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		584639412C2B206800E37AF6 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		584639462C2B2BFC00E37AF6 /* WeatherKit_with_AsyncAwait.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherKit_with_AsyncAwait.entitlements; sourceTree = "<group>"; };
+		584639472C2B2D2D00E37AF6 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +54,10 @@
 		584639312C2B1E9200E37AF6 /* WeatherKit_with_AsyncAwait */ = {
 			isa = PBXGroup;
 			children = (
+				584639462C2B2BFC00E37AF6 /* WeatherKit_with_AsyncAwait.entitlements */,
 				584639322C2B1E9200E37AF6 /* WeatherKit_with_AsyncAwaitApp.swift */,
 				584639342C2B1E9200E37AF6 /* ContentView.swift */,
-				584639402C2B205A00E37AF6 /* Model */,
+				584639472C2B2D2D00E37AF6 /* WeatherViewModel.swift */,
 				584639362C2B1E9300E37AF6 /* Assets.xcassets */,
 				584639382C2B1E9300E37AF6 /* Preview Content */,
 			);
@@ -68,14 +70,6 @@
 				584639392C2B1E9300E37AF6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		584639402C2B205A00E37AF6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				584639412C2B206800E37AF6 /* WeatherData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				584639352C2B1E9200E37AF6 /* ContentView.swift in Sources */,
-				584639422C2B206800E37AF6 /* WeatherData.swift in Sources */,
+				584639482C2B2D2D00E37AF6 /* WeatherViewModel.swift in Sources */,
 				584639332C2B1E9200E37AF6 /* WeatherKit_with_AsyncAwaitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,12 +275,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKit_with_AsyncAwait/WeatherKit_with_AsyncAwait.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKit_with_AsyncAwait/Preview Content\"";
 				DEVELOPMENT_TEAM = P95R3MRRWK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "사용자의 위치를 확인합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,9 +295,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.Bin.WeatherKit-with-AsyncAwait";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,12 +310,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKit_with_AsyncAwait/WeatherKit_with_AsyncAwait.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKit_with_AsyncAwait/Preview Content\"";
 				DEVELOPMENT_TEAM = P95R3MRRWK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "사용자의 위치를 확인합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,9 +330,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.Bin.WeatherKit-with-AsyncAwait";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
